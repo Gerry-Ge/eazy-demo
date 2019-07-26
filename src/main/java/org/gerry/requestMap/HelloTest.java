@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.swing.text.AsyncBoxView;
+import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import com.alibaba.fastjson.JSON;
@@ -33,15 +34,15 @@ public class HelloTest {
         Child chi=new Child();
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
-        res.setResMsg("");
+        res.setResMsg("dasdas");
         System.out.println(chi.getMapperClass());
         return JSON.toJSONString(res);
     }
 
-    //http://localhost:8081/hello/app?id=2
-    @RequestMapping("/app")
-    public String getApplication(@PathParam("id") String id){
-        User user=userService.search(Integer.parseInt(id));
+    //http://localhost:8081/hello/app?idp=2
+    @Path("/app/{idp}")
+    public String getApplication(@PathParam(value="idp") String idp){
+        User user=userService.search(Integer.parseInt(idp));
 
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
@@ -50,22 +51,22 @@ public class HelloTest {
         return JSON.toJSONString(res);
     }
 
-    //http://localhost:8080/hello/testQP?name=gerry
+    //http://localhost:8080/hello/testQP?namep=gerry
     //大小写敏感
     @RequestMapping("/testQP")
-    public String hello(@QueryParam("name") String name){
+    public String hello(@QueryParam(value="namep") String namep){
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
-        res.setResMsg("Hello "+name+" !");
+        res.setResMsg("Hello "+namep+" !");
         return JSON.toJSONString(res);
     }
 
-    //http://localhost:8080/hello/testPP?name=gerry
-    @RequestMapping("testPP")
-    public String hello2(@PathParam("name") String name){
+    //http://localhost:8080/hello/testPP?namep=gerry
+    @Path("testPP/{namep}")
+    public String hello2(@PathParam("namep") String namep){
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
-        res.setResMsg("Hello "+name+" !");
+        res.setResMsg("Hello "+namep+" !");
         return JSON.toJSONString(res);
     }
 

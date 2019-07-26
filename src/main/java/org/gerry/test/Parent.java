@@ -11,6 +11,7 @@ public abstract class Parent<Mapper,Record,Example> {
      * @return
      */
     public Class<Mapper> getMapperClass() {
-        return (Class<Mapper>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+//        return (Class<Mapper>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+        return null;
     }
 }
