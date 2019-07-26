@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.gerry.yml.readYml",
+      "name": "test",
+      "type": "org.gerry.yml.readYml"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.gerry.yml.readYml",
+      "name": "test.id",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "org.gerry.yml.readYml",
+      "name": "test.url",
+      "type": "java.lang.String"
+    }
+  ]
+}

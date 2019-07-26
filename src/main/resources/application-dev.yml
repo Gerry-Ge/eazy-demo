@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+test:
+  url: http:dsadas
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/zqtong-backend-frame
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+
