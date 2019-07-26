@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.swing.text.AsyncBoxView;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hello")
+@Path("/hello")
 public class HelloTest {
 
     @Autowired
@@ -62,11 +64,12 @@ public class HelloTest {
     }
 
     //http://localhost:8080/hello/testPP?namep=gerry
-    @Path("testPP/{namep}")
-    public String hello2(@PathParam("namep") String namep){
+    @GET
+    @Path("/testPP/{name}")
+    public String hello2(@PathParam("name") String name){
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
-        res.setResMsg("Hello "+namep+" !");
+        res.setResMsg("Hello "+name+" !");
         return JSON.toJSONString(res);
     }
 
