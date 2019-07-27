@@ -1,6 +1,8 @@
 package org.gerry.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private int id;
     private String name;
 

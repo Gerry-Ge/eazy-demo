@@ -4,6 +4,7 @@ import org.gerry.Utils.ResJasonTemplate;
 import org.gerry.Utils.applicationAware;
 import org.gerry.mapper.UserMapper;
 import org.gerry.model.User;
+import org.gerry.services.UserInterface;
 import org.gerry.services.UserService;
 import org.gerry.test.Child;
 import org.gerry.yml.readYml;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloTest {
 
     @Autowired
-    UserService userService;
+    UserMapper userMapper;
 
 
 
@@ -44,7 +45,7 @@ public class HelloTest {
     //http://localhost:8081/hello/app?idp=2
     @Path("/app/{idp}")
     public String getApplication(@PathParam(value="idp") String idp){
-        User user=userService.search(Integer.parseInt(idp));
+        User user=userMapper.search(Integer.parseInt(idp));
 
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");

@@ -14,6 +14,26 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
+dubbo:
+ application:
+   name: eazyDemoProvider
+ registry:
+   protocol: zookeeper
+   address: 192.168.193.20:2181
+ protocol:
+   name: dubbo
+   port: 20880
+   threadpool: fixed
+   threads: 500
+   accepts: 600
+   serialization: hessian2
+
+
+ provider:
+   timeout: 10000
+ scan:
+   base-packages: org.gerry.services
+
 mybatis:
     mapper-locations: classpath:mapper/*.xml
 
