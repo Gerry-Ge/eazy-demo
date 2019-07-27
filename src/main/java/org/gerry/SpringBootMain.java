@@ -19,9 +19,6 @@ public class SpringBootMain {
         SpringApplication.run(new SpringBootMain().getClass(),args);
     }
 
-    @Autowired
-    UserInterface userService;
-
     @Bean
     public Object testGetClass(){
         return "dsada";
