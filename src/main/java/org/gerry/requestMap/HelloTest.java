@@ -9,10 +9,12 @@ import org.gerry.services.UserService;
 import org.gerry.test.Child;
 import org.gerry.yml.readYml;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.swing.text.AsyncBoxView;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -30,7 +32,21 @@ public class HelloTest {
     @Autowired
     UserMapper userMapper;
 
+//    @Autowired@Qualifier("UserService")
+//    UserService userService;
 
+    @Resource
+    UserService userService;
+
+
+    @RequestMapping("/test2")
+    public String test2(){
+        User user=userService.search(1);
+        ResJasonTemplate res=new ResJasonTemplate();
+        res.setResCode("200");
+        res.setResMsg(user.toString());
+        return JSON.toJSONString(res);
+    }
 
     @RequestMapping("/test")
     public String test(){

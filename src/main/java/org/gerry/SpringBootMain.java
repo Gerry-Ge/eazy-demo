@@ -12,7 +12,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
+@EnableTransactionManagement(proxyTargetClass = true)
 @MapperScan("org.gerry.mapper")
 public class SpringBootMain {
     public static void main(String[] args){

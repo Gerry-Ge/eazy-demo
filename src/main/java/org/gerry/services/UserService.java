@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import java.util.UUID;
 
 @Service
+@org.springframework.stereotype.Service
 @ComponentScan({"org.gerry.mapper"})
 @Transactional
 public class UserService implements UserInterface {
