@@ -1,5 +1,6 @@
 package org.gerry.requestMap;
 
+import org.gerry.Utils.RedisManager;
 import org.gerry.Utils.ResJasonTemplate;
 import org.gerry.Utils.applicationAware;
 import org.gerry.mapper.UserMapper;
@@ -38,13 +39,17 @@ public class HelloTest {
     @Resource
     UserService userService;
 
+    @Autowired
+    RedisManager redisManager;
 
     @RequestMapping("/test2")
     public String test2(){
         User user=userService.search(1);
+        redisManager.set("name","gerry");
+
         ResJasonTemplate res=new ResJasonTemplate();
         res.setResCode("200");
-        res.setResMsg(user.toString());
+        res.setResMsg(redisManager.get("name")+"");
         return JSON.toJSONString(res);
     }
 
