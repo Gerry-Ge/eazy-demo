@@ -21,6 +21,6 @@ public class SpringBootMain {
 
     @Bean
     public Object testGetClass(){
-        return "dsada";
+        return "new Branch";
     }
 }
