@@ -15,7 +15,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   redis:
     database: 1
-    host: localhost
+    host: 127.0.0.1
     port: 6379
     password:
 
@@ -24,7 +24,7 @@ dubbo:
    name: eazyDemoProvider
  registry:
    protocol: zookeeper
-   address: 192.168.193.20:2181
+   address: 127.0.0.1:2181
  protocol:
    name: dubbo
    port: 20880

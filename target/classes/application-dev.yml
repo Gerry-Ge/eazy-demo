@@ -13,13 +13,18 @@ spring:
     password: 123
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
 
 dubbo:
  application:
    name: eazyDemoProvider
  registry:
    protocol: zookeeper
-   address: 192.168.193.20:2181
+   address: 127.0.0.1:2181
  protocol:
    name: dubbo
    port: 20880
