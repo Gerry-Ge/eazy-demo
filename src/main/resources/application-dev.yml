@@ -21,7 +21,7 @@ spring:
 
 dubbo:
  application:
-   name: eazyDemoProvider1
+   name: eazyDemoProvider2
  registry:
    protocol: zookeeper
    address: 192.168.193.20:2181
