@@ -10,7 +10,7 @@
 
     <properties>
         <dubbo.version>2.7.1</dubbo.version>
-        <resteasy.version>3.0.7.Final</resteasy.version>
+        <resteasy.version>3.0.11.Final</resteasy.version>
     </properties>
 
     <parent>
